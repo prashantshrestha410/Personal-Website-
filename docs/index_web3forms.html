@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prashant Shrestha — Designer &amp; Developer, Kathmandu</title>
+  <meta name="description" content="Prashant Shrestha is a designer and developer in Kathmandu, Nepal, building websites, interfaces and small digital products." />
+  <meta property="og:title" content="Prashant Shrestha — Designer & Developer" />
+  <meta property="og:description" content="Websites, interfaces and small digital products, made in Kathmandu." />
+  <meta name="theme-color" content="#f3ede2" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231c1a17'/%3E%3Ctext x='50%25' y='56%25' text-anchor='middle' dominant-baseline='middle' font-family='Georgia,serif' font-style='italic' font-size='38' fill='%23f3ede2'%3Ep%3C/text%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..800;1,9..144,300..800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --paper: #f3ede2;
+      --paper-deep: #e9e1d2;
+      --ink: #1c1a17;
+      --ink-soft: #4a453d;
+      --muted: #8a8172;
+      --line: rgba(28, 26, 23, 0.14);
+      --accent: #c2412d;
+      --accent-soft: rgba(194, 65, 45, 0.1);
+      --display: "Fraunces", Georgia, serif;
+      --body: "Instrument Sans", "Helvetica Neue", sans-serif;
+      --mono: "JetBrains Mono", ui-monospace, monospace;
+      --gutter: clamp(20px, 5vw, 64px);
+      --ease: cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--body);
+      font-size: 17px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* paper grain */
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 100;
+      opacity: 0.35;
+      mix-blend-mode: multiply;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.11 0 0 0 0 0.1 0 0 0 0 0.09 0 0 0 0.09 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+
+    ::selection { background: var(--accent); color: var(--paper); }
+
+    a { color: inherit; }
+
+    :focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+      border-radius: 2px;
+    }
+
+    .mono {
+      font-family: var(--mono);
+      font-size: 12px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .skip {
+      position: absolute;
+      left: -9999px;
+      top: 12px;
+      background: var(--ink);
+      color: var(--paper);
+      padding: 8px 14px;
+      z-index: 200;
+    }
+    .skip:focus { left: 12px; }
+
+    /* ---------- Nav ---------- */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px var(--gutter);
+      background: rgba(243, 237, 226, 0.82);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.3s;
+    }
+    nav.scrolled { border-bottom-color: var(--line); }
+
+    .mark {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      font-family: var(--display);
+      font-size: 20px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+    .mark i {
+      display: grid;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: var(--ink);
+      color: var(--paper);
+      font-style: italic;
+      font-weight: 400;
+      font-size: 19px;
+      line-height: 1;
+      padding-bottom: 3px;
+      transition: transform 0.5s var(--ease), background 0.3s;
+    }
+    .mark:hover i { transform: rotate(-14deg); background: var(--accent); }
+
+    .nav-links {
+      display: flex;
+      gap: clamp(16px, 3vw, 36px);
+      list-style: none;
+    }
+    .nav-links a {
+      text-decoration: none;
+      position: relative;
+      color: var(--ink-soft);
+      transition: color 0.2s;
+    }
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -3px;
+      width: 100%;
+      height: 1px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.4s var(--ease);
+    }
+    .nav-links a:hover { color: var(--ink); }
+    .nav-links a:hover::after { transform: scaleX(1); transform-origin: left; }
+
+    /* ---------- Hero ---------- */
+    .hero {
+      position: relative;
+      min-height: calc(100vh - 71px);
+      min-height: calc(100svh - 71px);
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows: auto 1fr auto;
+      column-gap: 20px;
+      padding: clamp(28px, 5vw, 56px) var(--gutter) clamp(28px, 4vw, 44px);
+    }
+
+    .hero-meta {
+      grid-column: 1 / -1;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 10px 24px;
+      color: var(--muted);
+    }
+    .status { display: inline-flex; align-items: center; gap: 10px; color: var(--ink-soft); }
+    .status::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #5f8a4e;
+      box-shadow: 0 0 0 0 rgba(95, 138, 78, 0.5);
+      animation: pulse 2.4s infinite;
+    }
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(95, 138, 78, 0.45); }
+      70% { box-shadow: 0 0 0 9px rgba(95, 138, 78, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(95, 138, 78, 0); }
+    }
+
+    .hero h1 {
+      grid-column: 1 / -1;
+      align-self: center;
+      font-family: var(--display);
+      font-weight: 340;
+      font-size: clamp(64px, 14.5vw, 236px);
+      line-height: 0.86;
+      letter-spacing: -0.045em;
+      font-variation-settings: "opsz" 144;
+      margin: clamp(36px, 6vw, 72px) 0;
+    }
+    .hero h1 .line { display: block; overflow: hidden; padding-bottom: 0.06em; }
+    .hero h1 .line > span { display: inline-block; transform: translateY(105%); animation: rise 1.1s var(--ease) forwards; }
+    .hero h1 .line:nth-child(2) { padding-left: clamp(40px, 16vw, 300px); }
+    .hero h1 .line:nth-child(2) > span { animation-delay: 0.12s; }
+    .hero h1 em {
+      font-style: italic;
+      font-weight: 300;
+      color: var(--accent);
+    }
+
+    @keyframes rise { to { transform: translateY(0); } }
+
+    .hero-foot {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      column-gap: 20px;
+      align-items: end;
+      opacity: 0;
+      animation: fade 1s var(--ease) 0.5s forwards;
+    }
+    .hero-intro {
+      grid-column: 1 / span 5;
+      font-size: clamp(18px, 1.6vw, 22px);
+      line-height: 1.45;
+      color: var(--ink-soft);
+    }
+    .hero-intro strong { color: var(--ink); font-weight: 600; }
+
+    .hero-cta {
+      grid-column: 8 / -1;
+      justify-self: end;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    @keyframes fade { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 22px;
+      border-radius: 999px;
+      border: 1px solid var(--ink);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 15px;
+      cursor: pointer;
+      font-family: var(--body);
+      transition: background 0.25s, color 0.25s, transform 0.25s var(--ease), border-color 0.25s;
+    }
+    .btn:active { transform: scale(0.97); }
+    .btn-solid { background: var(--ink); color: var(--paper); }
+    .btn-solid:hover { background: var(--accent); border-color: var(--accent); }
+    .btn-ghost { background: transparent; color: var(--ink); }
+    .btn-ghost:hover { background: var(--ink); color: var(--paper); }
+    .btn svg { width: 14px; height: 14px; transition: transform 0.3s var(--ease); }
+    .btn:hover svg { transform: translate(2px, -2px); }
+
+    /* rotating stamp */
+    .stamp {
+      position: absolute;
+      right: var(--gutter);
+      top: clamp(90px, 14vw, 150px);
+      width: clamp(96px, 11vw, 140px);
+      aspect-ratio: 1;
+      opacity: 0;
+      animation: fade 1s var(--ease) 0.8s forwards;
+    }
+    .stamp svg { width: 100%; height: 100%; animation: spin 26s linear infinite; }
+    .stamp::after {
+      content: "";
+      position: absolute;
+      inset: 37%;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* ---------- Marquee ---------- */
+    .marquee {
+      border-top: 1px solid var(--ink);
+      border-bottom: 1px solid var(--ink);
+      background: var(--ink);
+      color: var(--paper);
+      overflow: hidden;
+      white-space: nowrap;
+      padding: 16px 0;
+    }
+    .marquee-track {
+      display: inline-flex;
+      gap: 40px;
+      animation: slide 38s linear infinite;
+      font-family: var(--display);
+      font-size: clamp(22px, 2.6vw, 34px);
+      font-style: italic;
+      font-weight: 300;
+    }
+    .marquee-track span { display: inline-flex; align-items: center; gap: 40px; }
+    .marquee-track span::after { content: "✦"; font-style: normal; font-size: 0.55em; color: var(--accent); }
+    @keyframes slide { to { transform: translateX(-50%); } }
+
+    /* ---------- Sections ---------- */
+    section { padding: clamp(80px, 11vw, 150px) var(--gutter); }
+
+    .sec-head {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      column-gap: 20px;
+      align-items: baseline;
+      margin-bottom: clamp(40px, 6vw, 80px);
+    }
+    .sec-num { grid-column: 1 / span 2; color: var(--accent); }
+    .sec-head h2 {
+      grid-column: 3 / -1;
+      font-family: var(--display);
+      font-weight: 360;
+      font-size: clamp(40px, 6vw, 88px);
+      line-height: 0.98;
+      letter-spacing: -0.035em;
+    }
+    .sec-head h2 em { font-style: italic; font-weight: 300; }
+
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.9s var(--ease), transform 0.9s var(--ease); }
+    .reveal.in { opacity: 1; transform: none; }
+
+    /* ---------- About ---------- */
+    .about-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      column-gap: 20px;
+      row-gap: 48px;
+    }
+    .about-lede {
+      grid-column: 3 / span 6;
+      font-family: var(--display);
+      font-size: clamp(24px, 2.4vw, 34px);
+      line-height: 1.3;
+      font-weight: 350;
+      letter-spacing: -0.015em;
+    }
+    .about-lede em { color: var(--accent); }
+    .about-body {
+      grid-column: 3 / span 5;
+      color: var(--ink-soft);
+      display: grid;
+      gap: 18px;
+    }
+    .facts {
+      grid-column: 9 / -1;
+      grid-row: 1 / span 2;
+      align-self: start;
+      border-top: 1px solid var(--ink);
+    }
+    .facts div {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .facts dt { color: var(--muted); }
+    .facts dd { text-align: right; font-weight: 500; }
+    #clock { font-variant-numeric: tabular-nums; }
+
+    /* ---------- Work ---------- */
+    #work { background: var(--paper-deep); }
+
+    .work-list { list-style: none; border-top: 1px solid var(--ink); }
+    .work-item {
+      position: relative;
+      display: grid;
+      grid-template-columns: 2fr 6fr 3fr 1fr;
+      gap: 20px;
+      align-items: center;
+      padding: clamp(22px, 3vw, 36px) 0;
+      border-bottom: 1px solid var(--line);
+      cursor: default;
+      isolation: isolate;
+    }
+    .work-item::before {
+      content: "";
+      position: absolute;
+      inset: 0 calc(var(--gutter) * -1);
+      background: var(--ink);
+      transform: scaleY(0);
+      transform-origin: bottom;
+      transition: transform 0.5s var(--ease);
+      z-index: -1;
+    }
+    .work-item:hover::before { transform: scaleY(1); transform-origin: top; }
+    .work-item > * { transition: color 0.35s, transform 0.5s var(--ease); }
+    .work-item:hover > * { color: var(--paper); }
+    .work-item:hover .work-title { transform: translateX(14px); }
+
+    .work-year { color: var(--muted); }
+    .work-title {
+      font-family: var(--display);
+      font-size: clamp(28px, 3.6vw, 52px);
+      font-weight: 380;
+      letter-spacing: -0.03em;
+      line-height: 1.05;
+    }
+    .work-title small {
+      display: block;
+      font-family: var(--body);
+      font-size: 15px;
+      letter-spacing: 0;
+      color: var(--ink-soft);
+      margin-top: 6px;
+      font-weight: 400;
+    }
+    .work-item:hover .work-title small { color: rgba(243, 237, 226, 0.7); }
+    .work-tags { color: var(--ink-soft); }
+    .work-arrow {
+      justify-self: end;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 1px solid currentColor;
+      display: grid;
+      place-items: center;
+    }
+    .work-arrow svg { width: 16px; height: 16px; transition: transform 0.4s var(--ease); }
+    .work-item:hover .work-arrow { background: var(--accent); border-color: var(--accent); }
+    .work-item:hover .work-arrow svg { transform: rotate(45deg); }
+
+    /* ---------- Services ---------- */
+    .services {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      column-gap: 20px;
+      row-gap: clamp(40px, 5vw, 64px);
+    }
+    .service { border-top: 1px solid var(--ink); padding-top: 22px; }
+    .service:nth-child(1) { grid-column: 1 / span 5; }
+    .service:nth-child(2) { grid-column: 7 / span 6; margin-top: clamp(0px, 8vw, 120px); }
+    .service:nth-child(3) { grid-column: 3 / span 5; }
+    .service:nth-child(4) { grid-column: 9 / span 4; margin-top: clamp(0px, 5vw, 70px); }
+    .service .mono { color: var(--accent); }
+    .service h3 {
+      font-family: var(--display);
+      font-weight: 400;
+      font-size: clamp(28px, 2.8vw, 40px);
+      letter-spacing: -0.025em;
+      line-height: 1.1;
+      margin: 14px 0 12px;
+    }
+    .service p { color: var(--ink-soft); max-width: 42ch; }
+
+    /* ---------- Contact ---------- */
+    #contact {
+      background: var(--ink);
+      color: var(--paper);
+    }
+    #contact .sec-head h2 em { color: var(--accent); }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      column-gap: 20px;
+      row-gap: 48px;
+    }
+    .contact-side {
+      grid-column: 1 / span 4;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+      color: rgba(243, 237, 226, 0.7);
+    }
+    .contact-side .mono { color: rgba(243, 237, 226, 0.45); display: block; margin-bottom: 6px; }
+    .contact-side a {
+      font-family: var(--display);
+      font-size: 26px;
+      font-style: italic;
+      color: var(--paper);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(243, 237, 226, 0.25);
+      transition: border-color 0.25s, color 0.25s;
+    }
+    .contact-side a:hover { color: var(--accent); border-color: var(--accent); }
+
+    form {
+      grid-column: 6 / -1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 36px 28px;
+    }
+    .field { display: flex; flex-direction: column; gap: 8px; }
+    .field.full { grid-column: 1 / -1; }
+    .field label { color: rgba(243, 237, 226, 0.55); }
+    .field input, .field textarea, .field select {
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid rgba(243, 237, 226, 0.3);
+      color: var(--paper);
+      font-family: var(--display);
+      font-size: 24px;
+      font-weight: 350;
+      padding: 6px 0 12px;
+      border-radius: 0;
+      outline: none;
+      transition: border-color 0.25s;
+      width: 100%;
+    }
+    .field textarea { resize: vertical; min-height: 120px; line-height: 1.4; }
+    .field select { appearance: none; cursor: pointer; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23f3ede2' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 4px center; }
+    .field select option { color: var(--ink); }
+    .field input::placeholder, .field textarea::placeholder { color: rgba(243, 237, 226, 0.25); }
+    .field input:focus, .field textarea:focus, .field select:focus { border-bottom-color: var(--accent); }
+    .field.invalid input, .field.invalid textarea { border-bottom-color: #e8826f; }
+    .err { color: #e8826f; font-size: 13px; min-height: 1em; }
+
+    .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+
+    .form-foot {
+      grid-column: 1 / -1;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .form-note { color: rgba(243, 237, 226, 0.5); font-size: 14px; }
+    .form-note.ok { color: #a9c89a; }
+    .form-note.bad { color: #e8826f; }
+
+    #contact .btn-solid { background: var(--paper); color: var(--ink); border-color: var(--paper); }
+    #contact .btn-solid:hover { background: var(--accent); color: var(--paper); border-color: var(--accent); }
+    #contact .btn[disabled] { opacity: 0.55; cursor: progress; }
+
+    .sent {
+      grid-column: 6 / -1;
+      display: none;
+      border-top: 1px solid rgba(243, 237, 226, 0.3);
+      padding-top: 28px;
+    }
+    .sent h3 { font-family: var(--display); font-weight: 350; font-size: clamp(32px, 4vw, 52px); letter-spacing: -0.03em; line-height: 1.05; }
+    .sent h3 em { color: var(--accent); }
+    .sent p { margin-top: 14px; color: rgba(243, 237, 226, 0.65); }
+    .sent button { margin-top: 26px; }
+    .contact-grid.done form { display: none; }
+    .contact-grid.done .sent { display: block; animation: fade 0.8s var(--ease); }
+
+    /* ---------- Footer ---------- */
+    footer {
+      background: var(--ink);
+      color: rgba(243, 237, 226, 0.45);
+      padding: 0 var(--gutter) 32px;
+      overflow: hidden;
+    }
+    .big-name {
+      font-family: var(--display);
+      font-weight: 300;
+      font-size: clamp(56px, 15.5vw, 260px);
+      letter-spacing: -0.05em;
+      line-height: 0.8;
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(243, 237, 226, 0.22);
+      white-space: nowrap;
+      padding: 40px 0 28px;
+      border-top: 1px solid rgba(243, 237, 226, 0.14);
+      user-select: none;
+    }
+    .foot-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 12px 24px;
+    }
+    .foot-row a { text-decoration: none; transition: color 0.2s; }
+    .foot-row a:hover { color: var(--paper); }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 900px) {
+      .hero-intro { grid-column: 1 / -1; margin-bottom: 28px; }
+      .hero-cta { grid-column: 1 / -1; justify-self: start; }
+      .stamp { top: auto; bottom: 170px; }
+      .sec-num { grid-column: 1 / -1; margin-bottom: 14px; }
+      .sec-head h2 { grid-column: 1 / -1; }
+      .about-lede, .about-body, .facts { grid-column: 1 / -1; grid-row: auto; }
+      .work-item { grid-template-columns: 1fr auto; }
+      .work-year { grid-column: 1 / -1; }
+      .work-tags { grid-column: 1; grid-row: 3; }
+      .work-arrow { grid-column: 2; grid-row: 2; }
+      .service:nth-child(n) { grid-column: 1 / -1; margin-top: 0; }
+      .contact-side, form, .sent { grid-column: 1 / -1; }
+    }
+    @media (max-width: 600px) {
+      .nav-links li:not(:last-child) { display: none; }
+      .stamp { display: none; }
+      .hero h1 .line:nth-child(2) { padding-left: 0.5em; }
+      form { grid-template-columns: 1fr; }
+      .field { grid-column: 1 / -1; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+      .reveal { opacity: 1; transform: none; }
+      html { scroll-behavior: auto; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <nav id="nav" aria-label="Primary">
+    <a href="#top" class="mark" aria-label="Prashant Shrestha, home"><i>p</i>Prashant</a>
+    <ul class="nav-links mono">
+      <li><a href="#about">About</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main id="main">
+    <!-- Hero -->
+    <header class="hero" id="top">
+      <div class="hero-meta mono">
+        <span class="status">Open to new projects &mdash; 2027</span>
+        <span>27.7172&deg; N, 85.3240&deg; E &middot; Kathmandu, Nepal</span>
+      </div>
+
+      <h1 aria-label="Prashant Shrestha">
+        <span class="line"><span>Prashant</span></span>
+        <span class="line"><span><em>Shrestha</em></span></span>
+      </h1>
+
+      <div class="stamp" aria-hidden="true">
+        <svg viewBox="0 0 200 200">
+          <defs><path id="circle" d="M100,100 m-80,0 a80,80 0 1,1 160,0 a80,80 0 1,1 -160,0" /></defs>
+          <text font-family="JetBrains Mono, monospace" font-size="15.5" letter-spacing="4.2" fill="#1c1a17">
+            <textPath href="#circle">DESIGN &#183; CODE &#183; KATHMANDU &#183; SINCE 2019 &#183;</textPath>
+          </text>
+        </svg>
+      </div>
+
+      <div class="hero-foot">
+        <p class="hero-intro">
+          I'm a <strong>designer and developer</strong> who builds websites, interfaces and small digital products. Clear typography, fast pages, and code that someone else can maintain later.
+        </p>
+        <div class="hero-cta">
+          <a href="#work" class="btn btn-ghost">See selected work</a>
+          <a href="#contact" class="btn btn-solid">Start a project
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9" /></svg>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>Web design</span><span>Front-end development</span><span>Brand identity</span><span>Landing pages</span><span>UI systems</span><span>Prototyping</span>
+        <span>Web design</span><span>Front-end development</span><span>Brand identity</span><span>Landing pages</span><span>UI systems</span><span>Prototyping</span>
+      </div>
+    </div>
+
+    <!-- About -->
+    <section id="about">
+      <div class="sec-head reveal">
+        <span class="sec-num mono">(01) &mdash; About</span>
+        <h2>Small team energy, <em>one person</em> deep.</h2>
+      </div>
+
+      <div class="about-grid">
+        <p class="about-lede reveal">
+          I work at the overlap of design and engineering &mdash; sketching the idea, shaping the interface, and shipping it to a real URL. <em>No handoff gaps.</em>
+        </p>
+
+        <dl class="facts reveal">
+          <div><dt class="mono">Based in</dt><dd>Kathmandu, NP</dd></div>
+          <div><dt class="mono">Local time</dt><dd id="clock">--:--</dd></div>
+          <div><dt class="mono">Focus</dt><dd>Web &amp; interface</dd></div>
+          <div><dt class="mono">Tools</dt><dd>Figma, HTML/CSS, JS</dd></div>
+          <div><dt class="mono">Languages</dt><dd>Nepali, English</dd></div>
+        </dl>
+
+        <div class="about-body reveal">
+          <p>Most of my projects start with a conversation about what a page actually needs to do &mdash; sell a product, collect sign-ups, explain something complicated &mdash; and work backwards from there to type, layout and code.</p>
+          <p>I like working with early-stage founders, local businesses and creative people who want a site that feels considered, loads quickly, and is easy to update once I've handed it over.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Work -->
+    <section id="work">
+      <div class="sec-head reveal">
+        <span class="sec-num mono">(02) &mdash; Selected work</span>
+        <h2>Recent things <em>I've made.</em></h2>
+      </div>
+
+      <ul class="work-list">
+        <li class="work-item reveal">
+          <span class="work-year mono">2026</span>
+          <h3 class="work-title">Aetheris<small>Launch page with live countdown and waitlist</small></h3>
+          <span class="work-tags mono">Design &middot; Front-end</span>
+          <span class="work-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M8 7h9v9" /></svg></span>
+        </li>
+        <li class="work-item reveal">
+          <span class="work-year mono">2026</span>
+          <h3 class="work-title">Himal Tea House<small>Menu, story and booking site for a café in Thamel</small></h3>
+          <span class="work-tags mono">Web design &middot; Brand</span>
+          <span class="work-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M8 7h9v9" /></svg></span>
+        </li>
+        <li class="work-item reveal">
+          <span class="work-year mono">2025</span>
+          <h3 class="work-title">Ledger Lite<small>Dashboard UI for a small-shop bookkeeping tool</small></h3>
+          <span class="work-tags mono">UI system &middot; Prototype</span>
+          <span class="work-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M8 7h9v9" /></svg></span>
+        </li>
+        <li class="work-item reveal">
+          <span class="work-year mono">2025</span>
+          <h3 class="work-title">Trailnotes<small>Field-guide style blog for Himalayan trekking routes</small></h3>
+          <span class="work-tags mono">Editorial &middot; Front-end</span>
+          <span class="work-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M8 7h9v9" /></svg></span>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Services -->
+    <section id="services">
+      <div class="sec-head reveal">
+        <span class="sec-num mono">(03) &mdash; Services</span>
+        <h2>What I can <em>help with.</em></h2>
+      </div>
+
+      <div class="services">
+        <article class="service reveal">
+          <span class="mono">i.</span>
+          <h3>Websites &amp; landing pages</h3>
+          <p>Marketing sites, launch pages and portfolios &mdash; designed and built end-to-end, responsive and quick to load.</p>
+        </article>
+        <article class="service reveal">
+          <span class="mono">ii.</span>
+          <h3>Interface design</h3>
+          <p>Screens, flows and component libraries for apps and dashboards, prototyped in Figma before a line of code is written.</p>
+        </article>
+        <article class="service reveal">
+          <span class="mono">iii.</span>
+          <h3>Front-end development</h3>
+          <p>Accessible, well-structured HTML, CSS and JavaScript that turns a design file into a working product.</p>
+        </article>
+        <article class="service reveal">
+          <span class="mono">iv.</span>
+          <h3>Visual identity</h3>
+          <p>Wordmarks, colour and type systems that give a small brand a consistent look across web and print.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <div class="sec-head reveal">
+        <span class="sec-num mono">(04) &mdash; Contact</span>
+        <h2>Have something in mind? <em>Let's talk.</em></h2>
+      </div>
+
+      <div class="contact-grid" id="contactGrid">
+        <div class="contact-side reveal">
+          <p>Tell me a little about your project and I'll reply within two working days.</p>
+          <div>
+            <span class="mono">Instagram</span>
+            <a href="https://www.instagram.com/pxshantt" target="_blank" rel="noopener">@pxshantt</a>
+          </div>
+          <div>
+            <span class="mono">Website</span>
+            <a href="https://prashantshrestha410.com.np">prashantshrestha410.com.np</a>
+          </div>
+        </div>
+
+        <form id="contactForm" class="reveal" novalidate>
+          <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY" />
+          <input type="checkbox" name="botcheck" class="hp" style="display:none" tabindex="-1" autocomplete="off" />
+
+          <div class="field">
+            <label class="mono" for="name">Your name</label>
+            <input id="name" name="name" type="text" autocomplete="name" placeholder="Anjali Gurung" required />
+            <span class="err" aria-live="polite"></span>
+          </div>
+          <div class="field">
+            <label class="mono" for="email">Email</label>
+            <input id="email" name="email" type="email" autocomplete="email" placeholder="you@studio.com" required />
+            <span class="err" aria-live="polite"></span>
+          </div>
+          <div class="field full">
+            <label class="mono" for="type">Project type</label>
+            <select id="type" name="project-type">
+              <option>Website or landing page</option>
+              <option>Interface design</option>
+              <option>Front-end development</option>
+              <option>Visual identity</option>
+              <option>Something else</option>
+            </select>
+          </div>
+          <div class="field full">
+            <label class="mono" for="message">About the project</label>
+            <textarea id="message" name="message" placeholder="What are you building, and when do you need it?" required></textarea>
+            <span class="err" aria-live="polite"></span>
+          </div>
+
+          <div class="form-foot">
+            <p class="form-note" id="formNote" aria-live="polite">All fields except project type are required.</p>
+            <button type="submit" class="btn btn-solid" id="sendBtn">Send message
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9" /></svg>
+            </button>
+          </div>
+        </form>
+
+        <div class="sent" role="status">
+          <h3>Thank you &mdash; <em>message received.</em></h3>
+          <p>I'll read it properly and get back to you within two working days.</p>
+          <button type="button" class="btn btn-ghost" id="againBtn" style="color: var(--paper); border-color: rgba(243,237,226,.4)">Send another</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="big-name" aria-hidden="true">Prashant Shrestha</div>
+    <div class="foot-row mono">
+      <span>&copy; <span id="year">2026</span> Prashant Shrestha</span>
+      <span>Made in Kathmandu</span>
+      <a href="#top">Back to top &uarr;</a>
+    </div>
+  </footer>
+
+  <script>
+    // sticky nav border
+    const nav = document.getElementById("nav");
+    const onScroll = () => nav.classList.toggle("scrolled", window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+
+    // scroll reveals
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) {
+          e.target.classList.add("in");
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+    document.querySelectorAll(".reveal").forEach((el, i) => {
+      el.style.transitionDelay = (i % 4) * 70 + "ms";
+      io.observe(el);
+    });
+
+    // Kathmandu local time
+    const clock = document.getElementById("clock");
+    const fmt = new Intl.DateTimeFormat("en-GB", { hour: "2-digit", minute: "2-digit", timeZone: "Asia/Kathmandu" });
+    const tick = () => { clock.textContent = fmt.format(new Date()) + " NPT"; };
+    tick();
+    setInterval(tick, 15000);
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // contact form (Netlify Forms, AJAX)
+    const form = document.getElementById("contactForm");
+    const grid = document.getElementById("contactGrid");
+    const note = document.getElementById("formNote");
+    const btn = document.getElementById("sendBtn");
+    const defaultNote = note.textContent;
+
+    const validators = {
+      name: (v) => v.trim().length >= 2 || "Please tell me your name.",
+      email: (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()) || "That email doesn't look right.",
+      message: (v) => v.trim().length >= 10 || "A sentence or two is plenty.",
+    };
+
+    function check(input) {
+      const rule = validators[input.name];
+      if (!rule) return true;
+      const result = rule(input.value);
+      const field = input.closest(".field");
+      const err = field.querySelector(".err");
+      if (result === true) {
+        field.classList.remove("invalid");
+        err.textContent = "";
+        input.removeAttribute("aria-invalid");
+        return true;
+      }
+      field.classList.add("invalid");
+      err.textContent = result;
+      input.setAttribute("aria-invalid", "true");
+      return false;
+    }
+
+    Object.keys(validators).forEach((n) => {
+      const input = form.elements[n];
+      input.addEventListener("blur", () => input.value && check(input));
+      input.addEventListener("input", () => input.closest(".field").classList.contains("invalid") && check(input));
+    });
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const fields = Object.keys(validators).map((n) => form.elements[n]);
+      const results = fields.map(check);
+      if (results.includes(false)) {
+        fields[results.indexOf(false)].focus();
+        return;
+      }
+
+      btn.disabled = true;
+      note.className = "form-note";
+      note.textContent = "Sending…";
+
+      try {
+        const res = await fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          body: new FormData(form),
+        });
+        const data = await res.json();
+        if (!res.ok || !data.success) {
+          throw new Error(data.message || `Request failed (${res.status})`);
+        }
+        form.reset();
+        note.textContent = defaultNote;
+        grid.classList.add("done");
+        grid.querySelector(".sent").focus?.();
+      } catch (err) {
+        note.className = "form-note bad";
+        note.textContent = "Something went wrong sending that. Please try again in a moment.";
+      } finally {
+        btn.disabled = false;
+      }
+    });
+
+    document.getElementById("againBtn").addEventListener("click", () => {
+      grid.classList.remove("done");
+      form.elements.name.focus();
+    });
+  </script>
+</body>
+</html>
