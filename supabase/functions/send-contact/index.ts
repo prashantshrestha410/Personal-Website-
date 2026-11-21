@@ -1,6 +1,5 @@
 
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
-
 const allowedOrigin =
   Deno.env.get("ALLOWED_ORIGIN") ?? "https://prashantshrestha410.com.np";
 
@@ -111,7 +110,7 @@ Deno.serve(async (req) => {
       throw new Error("Email service configuration is missing");
     }
 
-    // 4. Send cont// Save contact message in Supabase
+    // Save contact message in Supabase
 const serviceRoleKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY");
 
 if (!serviceRoleKey) {
@@ -146,6 +145,7 @@ if (dbError) {
   );
 }
     //act notification through Resend
+    
     const response = await fetch("https://api.resend.com/emails", {
       method: "POST",
       headers: {
