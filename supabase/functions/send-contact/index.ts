@@ -111,7 +111,41 @@ Deno.serve(async (req) => {
       throw new Error("Email service configuration is missing");
     }
 
-    // 4. Send contact notification through Resend
+    // 4. Send cont// Save contact message in Supabase
+const serviceRoleKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY");
+
+if (!serviceRoleKey) {
+  throw new Error("Database configuration is missing");
+}
+
+const supabaseAdmin = createClient(
+  supabaseUrl,
+  serviceRoleKey,
+  {
+    auth: {
+      persistSession: false,
+      autoRefreshToken: false,
+    },
+  }
+);
+
+const { error: dbError } = await supabaseAdmin
+  .from("contact_messages")
+  .insert({
+    name,
+    email,
+    project_type: projectType,
+    message,
+  });
+
+if (dbError) {
+  console.error("Database save failed:", dbError);
+  return Response.json(
+    { error: "Could not save contact message" },
+    { status: 500, headers: corsHeaders }
+  );
+}
+    //act notification through Resend
     const response = await fetch("https://api.resend.com/emails", {
       method: "POST",
       headers: {
