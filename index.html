@@ -910,7 +910,7 @@
 
     const validators = {
       name: (v) => v.trim().length >= 2 || "Please tell me your name.",
-      email: (v) => /^[^\\s@]+@[^\\s@]+\.[^\\s@]+$/.test(v.trim()) || "That email doesn't look right.",
+      email: (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()) || "That email doesn't look right.",
       message: (v) => v.trim().length >= 10 || "A sentence or two is plenty.",
     };
 
