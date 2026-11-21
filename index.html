@@ -783,6 +783,105 @@
         </article>
       </div>
     </section>
+    ```html
+<!-- PROJECTS & PUBLICATIONS -->
+<section id="projects" class="projects-section">
+  <div class="section-heading">
+    <span class="section-label">MY WORK & DOCUMENTATION</span>
+    <h2>Projects & Publications</h2>
+    <p>
+      Explore my academic projects, reports, research
+      and presentations.
+    </p>
+  </div>
+
+  <div class="projects-grid">
+
+    <!-- PROJECT 1: PDF -->
+    <article class="project-card">
+      <div class="project-icon">📄</div>
+
+      <span class="project-category">PROJECT REPORT</span>
+
+      <h3>Pharping Hydropower Visit</h3>
+
+      <p>
+        A detailed report documenting the industrial
+        visit, observations and learning experiences.
+      </p>
+
+      <div class="project-actions">
+        <button onclick="openProjectPDF(
+          'projects/your-file-name.pdf'
+        )">
+          Read Online
+        </button>
+
+        <a
+          href="projects/your-file-name.pdf"
+          target="_blank"
+          rel="noopener noreferrer">
+          Open PDF
+        </a>
+
+        <a
+          href="projects/your-file-name.pdf"
+          download>
+          Download
+        </a>
+      </div>
+    </article>
+
+    <!-- PROJECT 2: PRESENTATION -->
+    <article class="project-card">
+      <div class="project-icon">📊</div>
+
+      <span class="project-category">PRESENTATION</span>
+
+      <h3>Mobile Computing</h3>
+
+      <p>
+        An academic presentation exploring mobile
+        computing, applications, security and future trends.
+      </p>
+
+      <div class="project-actions">
+        <a
+          href="YOUR_GOOGLE_SLIDES_EMBED_URL"
+          target="_blank"
+          rel="noopener noreferrer">
+          View Presentation
+        </a>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+
+<div id="pdfModal" class="pdf-modal">
+  <div class="pdf-modal-content">
+
+    <div class="pdf-modal-header">
+      <h3>Project Document</h3>
+
+      <button
+        type="button"
+        onclick="closeProjectPDF()"
+        aria-label="Close PDF viewer">
+        ✕
+      </button>
+    </div>
+
+    <iframe
+      id="projectPDFFrame"
+      title="Project PDF preview">
+    </iframe>
+
+  </div>
+</div>
+
+    
 
     <!-- Contact -->
     <section id="contact">
