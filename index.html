@@ -1063,9 +1063,28 @@
         btn.disabled = true;
         grid.classList.add("done");
       } catch (error) {
-        note.className = "form-note bad";
-        note.textContent = error.message || "Something went wrong sending that. Please try again in a moment.";
-      } finally {
+  let message = "Something went wrong sending your message. Please try again.";
+
+  // Read the actual response from the Edge Function.
+  try {
+    const response = error?.context;
+
+    if (response && typeof response.clone === "function") {
+      const details = await response.clone().json();
+
+      if (response.status === 429 && details?.error) {
+        message = details.error;
+      } else if (details?.error) {
+        message = details.error;
+      }
+    }
+  } catch (_) {
+    // Keep the default message if the response cannot be read.
+  }
+
+  note.className = "form-note bad";
+  note.textContent = message;
+} finally {
         btn.disabled = !verifiedEmail;
         sendCodeBtn.disabled = false;
       }
