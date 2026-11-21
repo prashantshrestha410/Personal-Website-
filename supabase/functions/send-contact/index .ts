@@ -125,6 +125,29 @@ Deno.serve(async (req) => {
         autoRefreshToken: false,
       },
     });
+    
+// Check the hourly submission limit.
+const { data: withinLimit, error: rateLimitError } =
+  await supabaseAdmin.rpc("check_contact_rate_limit", {
+    p_email: email,
+  });
+
+if (rateLimitError) {
+  console.error("Rate limit check failed:", rateLimitError);
+
+  return Response.json(
+    { error: "Unable to process your message right now" },
+    { status: 500, headers: corsHeaders },
+  );
+}
+
+if (!withinLimit) {
+  return Response.json(
+    { error: "You have reached the limit of 3 messages per hour. Please try again later." },
+    { status: 429, headers: corsHeaders },
+  );
+}
+
 
     const { error: dbError } = await supabaseAdmin
       .from("contact_messages")
