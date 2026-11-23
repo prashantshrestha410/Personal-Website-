@@ -181,5 +181,116 @@ function closePresentation() {
         setVerifyStatus(error.message || "That code could not be verified. Try again.", "bad");
       } finally {
         verifyCodeBtn.disabled = false;
+        }
+    });
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const fields = Object.keys(validators).map((n) => form.elements[n]);
+      const results = fields.map(check);
+      if (results.includes(false)) {
+        fields[results.indexOf(false)].focus();
+        return;
+      }
+      if (!verifiedEmail || emailInput.value.trim().toLowerCase() !== verifiedEmail) {
+        setVerifyStatus("Please verify this email address before sending.", "bad");
+        emailInput.focus();
+        return;
+      }
+      if (form.elements.website.value.trim()) return;
+      if (!supabaseClient) {
+        note.className = "form-note bad";
+        note.textContent = "Supabase is not configured yet. Please try again later.";
+        return;
+      }
+
+      btn.disabled = true;
+      sendCodeBtn.disabled = true;
+      note.className = "form-note";
+      note.textContent = "Sending your message…";
+
+      try {
+        const payload = {
+          name: form.elements.name.value.trim(),
+          email: emailInput.value.trim(),
+          projectType: form.elements["project-type"].value,
+          message: form.elements.message.value.trim(),
+          website: form.elements.website.value
+        };
+        const { data, error } = await supabaseClient.functions.invoke("send-contact", { body: payload });
+        if (error) throw error;
+        if (data && data.error) throw new Error(data.error);
+
+        form.reset();
+        verifiedEmail = "";
+        otpField.classList.remove("show");
+        setVerifyStatus("Verify your email before sending a message.");
+        note.textContent = "All fields except project type are required.";
+        note.className = "form-note";
+        btn.disabled = true;
+        grid.classList.add("done");
+      } catch (error) {
+  let message = "Something went wrong sending your message. Please try again.";
+
+  // Read the actual response from the Edge Function.
+  try {
+    const response = error?.context;
+
+    if (response && typeof response.clone === "function") {
+      const details = await response.clone().json();
+
+      if (response.status === 429 && details?.error) {
+        message = details.error;
+      } else if (details?.error) {
+        message = details.error;
+      }
+    }
+  } catch (_) {
+    // Keep the default message if the response cannot be read.
+  }
+
+  note.className = "form-note bad";
+  note.textContent = message;
+} finally {
+        btn.disabled = !verifiedEmail;
+        sendCodeBtn.disabled = false;
+      }
+    });
+
+    document.getElementById("againBtn").addEventListener("click", () => {
+      grid.classList.remove("done");
+      resetEmailVerification();
+      note.className = "form-note";
+      note.textContent = "Verify your email before sending your message.";
+      form.elements.name.focus();
+    });
+    // Dark and Light Mode
+const themeToggle = document.getElementById("themeToggle");
+
+function applyTheme(theme) {
+  document.documentElement.setAttribute("data-theme", theme);
+
+  themeToggle.textContent = theme === "dark" ? "☀️" : "🌙";
+
+  themeToggle.setAttribute(
+    "aria-label",
+    theme === "dark" ? "Switch to light mode" : "Switch to dark mode"
+  );
+
+  localStorage.setItem("portfolio-theme", theme);
+}
+
+// Load saved theme
+const savedTheme = localStorage.getItem("portfolio-theme") || "light";
+applyTheme(savedTheme);
+
+// Toggle theme
+themeToggle.addEventListener("click", () => {
+  const currentTheme =
+    document.documentElement.getAttribute("data-theme") || "light";
+
+  applyTheme(currentTheme === "light" ? "dark" : "light");
+});
+
           
     
