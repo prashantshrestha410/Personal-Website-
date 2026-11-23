@@ -45,14 +45,17 @@ function openPresentation() {
 
   document.getElementById("presentationModal")
     .classList.add("active");
-}
 
+  document.body.style.overflow = "hidden";
+}
 function closePresentation() {
   document.getElementById("presentationModal")
     .classList.remove("active");
 
   document.getElementById("presentationFrame").src = "";
-    }
+
+  document.body.style.overflow = "";
+}
     // Contact form: Supabase email OTP verification + secure Edge Function submission.
     // Replace these two public project values with your own Supabase project details.
     const SUPABASE_URL = "https://arvaqzwhxrpzcwzfplnw.supabase.co";
@@ -439,6 +442,35 @@ document.addEventListener("keydown", function(event) {
     }
   }
 });
+// LIVE KATHMANDU CLOCK
+
+const clockElement = document.getElementById("clock");
+
+function updateClock() {
+  if (!clockElement) return;
+
+  clockElement.textContent = new Intl.DateTimeFormat(
+    "en-GB",
+    {
+      timeZone: "Asia/Kathmandu",
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: false
+    }
+  ).format(new Date());
+}
+
+updateClock();
+setInterval(updateClock, 30000);
+
+
+// AUTOMATIC COPYRIGHT YEAR
+
+const yearElement = document.getElementById("year");
+
+if (yearElement) {
+  yearElement.textContent = new Date().getFullYear();
+}
 
 
 
