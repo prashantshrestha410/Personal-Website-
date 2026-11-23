@@ -600,3 +600,157 @@
 
 [data-theme="dark"] #contact .field input:focus,
 [data-theme="dark"] #contact 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[data-theme="dark"] #contact .field textarea:focus,
+[data-theme="dark"] #contact .field select:focus {
+  border-bottom-color: #5685FF;
+  box-shadow: 0 2px 10px rgba(36, 91, 255, 0.2);
+}
+
+[data-theme="dark"] #contact .btn-solid:hover {
+  background: #245BFF;
+  border-color: #245BFF;
+  box-shadow: 0 0 20px rgba(36, 91, 255, 0.4);
+                }
+    
+
+    /* ---------- Footer ---------- *
+    footer {
+      background: var(--ink);
+      color: rgba(243, 237, 226, 0.45);
+      padding: 0 var(--gutter) 32px;
+      overflow: hidden;
+    }
+    .big-name {
+      font-family: var(--display);
+      font-weight: 300;
+      font-size: clamp(56px, 15.5vw, 260px);
+      letter-spacing: -0.05em;
+      line-height: 0.8;
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(243, 237, 226, 0.22);
+      white-space: nowrap;
+      padding: 40px 0 28px;
+      border-top: 1px solid rgba(243, 237, 226, 0.14);
+      user-select: none;
+    }
+    .foot-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 12px 24px;
+    }
+    .foot-row a { text-decoration: none; transition: color 0.2s; }
+    .foot-row a:hover { color: var(--paper); }
+
+    /* ---------- Responsive ---------- *
+    @media (max-width: 900px) {
+      .hero-intro { grid-column: 1 / -1; margin-bottom: 28px; }
+      .hero-cta { grid-column: 1 / -1; justify-self: start; }
+      .stamp { top: auto; bottom: 170px; }
+      .sec-num { grid-column: 1 / -1; margin-bottom: 14px; }
+      .sec-head h2 { grid-column: 1 / -1; }
+      .about-lede, .about-body, .facts { grid-column: 1 / -1; grid-row: auto; }
+      .work-item { grid-template-columns: 1fr auto; }
+      .work-year { grid-column: 1 / -1; }
+      .work-tags { grid-column: 1; grid-row: 3; }
+      .work-arrow { grid-column: 2; grid-row: 2; }
+      .service:nth-child(n) { grid-column: 1 / -1; margin-top: 0; }
+      .contact-side, form, .sent { grid-column: 1 / -1; }
+    }
+    @media (max-width: 600px) {
+      .nav-links li:not(:last-child) { display: none; }
+      .stamp { display: none; }
+      .hero h1 .line:nth-child(2) { padding-left: 0.5em; }
+      form { grid-template-columns: 1fr; }
+      .field { grid-column: 1 / -1; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+      .reveal { opacity: 1; transform: none; }
+      html { scroll-behavior: auto; }
+    }
+    
+/* PROJECTS SECTION *
+
+.projects-section {
+  padding: 100px 8%;
+}
+
+.section-heading {
+  max-width: 650px;
+  margin-bottom: 45px;
+}
+
+.section-label,
+.project-category {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  color: #a65d43;
+}
+
+.section-heading h2 {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(32px, 5vw, 52px);
+  margin: 14px 0;
+  color: #344b3c;
+}
+
+.section-heading p {
+  line-height: 1.7;
+  color: #777;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns:
+    repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+}
+
+.project-card {
+  background: #fffefa;
+  border: 1px solid rgba(52, 75, 60, 0.15);
+  border-radius: 12px;
+  padding: 28px;
+  transition: transform 0.3s ease,
+              box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.07);
+}
+
+.project-icon {
+  font-size: 32px;
+  margin-bottom: 22px;
+}
+
+.project-card h3 {
+  font-family: 'Fraunces', serif;
+  color: #344b3c;
+  font-size: 24px;
+  margin: 12px 0;
+}
+
+.project-card p {
+  color: #777;
+  font-size: 14px;
+  line-height: 1.7;
+        }
