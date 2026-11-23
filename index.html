@@ -373,36 +373,9 @@
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script src="script3.js" defer></script>
-  <script>
-    // sticky nav border
-    const nav = document.getElementById("nav");
-    const onScroll = () => nav.classList.toggle("scrolled", window.scrollY > 8);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-
-    // scroll reveals
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach((e) => {
-        if (e.isIntersecting) {
-          e.target.classList.add("in");
-          io.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
-    document.querySelectorAll(".reveal").forEach((el, i) => {
-      el.style.transitionDelay = (i % 4) * 70 + "ms";
-      io.observe(el);
-    });
-
-    // Kathmandu local time
-    const clock = document.getElementById("clock");
-    const fmt = new Intl.DateTimeFormat("en-GB", { hour: "2-digit", minute: "2-digit", timeZone: "Asia/Kathmandu" });
-    const tick = () => { clock.textContent = fmt.format(new Date()) + " NPT"; };
-    tick();
-    setInterval(tick, 15000);
-
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+    <script src="script2.js" defer></script>
+  <button id="backToTop" aria-label="Back to top">
+  ↑
+  </button>
 </body>
 </html>
