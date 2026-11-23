@@ -800,7 +800,38 @@
   .pdf-modal-content {
     height: 95vh;
   }
+}
+    
+.presentation-container {
+  width: min(1000px, 95vw);
+  height: min(650px, 85vh);
+  background: #fff;
+  padding: 12px;
+  border-radius: 16px;
+}
+
+.presentation-container iframe {
+  width: 100%;
+  height: calc(100% - 40px);
+  border: 0;
+  border-radius: 10px;
+}
+
+.project-modal.active {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.project-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(0,0,0,.85);
+  padding: 12px;
   }
+    
   </style>
 </head>
 <body>
@@ -998,32 +1029,46 @@
         </a>
       </div>
     </article>
-
     <!-- PROJECT 2: PRESENTATION -->
-    <article class="project-card">
-      <div class="project-icon">📊</div>
+<div class="project-card">
+  <div class="project-info">
+    <span class="project-type">PRESENTATION</span>
+    <h3>Mobile Computing</h3>
+    <p>
+      An introduction to mobile computing,
+      its applications, benefits and challenges.
+    </p>
 
-      <span class="project-category">PRESENTATION</span>
+    <div class="project-actions">
+      <button onclick="openPresentation()">
+        Preview Slides
+      </button>
 
-      <h3>Mobile Computing</h3>
-
-      <p>
-        An academic presentation exploring mobile
-        computing, applications, security and future trends.
-      </p>
-
-      <div class="project-actions">
-        <a
-          href="SOCIAl SERVICE PRESENTATION.pptx"
-          target="_blank"
-          rel="noopener noreferrer">
-          View Presentations 
-        </a>
-      </div>
-    </article>
-
+      <a
+        href="projects/MOBILE%20COMPUTING.pptx"
+        download
+        class="project-btn">
+        Download PPTX
+      </a>
+    </div>
   </div>
-</section>
+</div>
+
+<div id="presentationModal" class="project-modal">
+  <div class="presentation-container">
+    <button onclick="closePresentation()">
+      Close ✕
+    </button>
+
+    <iframe
+      id="presentationFrame"
+      src=""
+      allowfullscreen>
+    </iframe>
+  </div>
+</div>
+    
+
 
 
 <div id="pdfModal" class="pdf-modal">
@@ -1212,6 +1257,24 @@ document.addEventListener("keydown", function(event) {
     closeProjectPDF();
   }
 });
+    // Presentation viewer
+const presentationEmbedURL = "PASTE_YOUR_GOOGLE_SLIDES_EMBED_URL";
+
+function openPresentation() {
+  document.getElementById("presentationFrame").src =
+    presentationEmbedURL;
+
+  document.getElementById("presentationModal")
+    .classList.add("active");
+}
+
+function closePresentation() {
+  document.getElementById("presentationModal")
+    .classList.remove("active");
+
+  document.getElementById("presentationFrame").src = "";
+    }
+    
 
     // Contact form: Supabase email OTP verification + secure Edge Function submission.
     // Replace these two public project values with your own Supabase project details.
