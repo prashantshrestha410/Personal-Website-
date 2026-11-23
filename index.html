@@ -28,7 +28,12 @@
       --gutter: clamp(20px, 5vw, 64px);
       --ease: cubic-bezier(0.22, 1, 0.36, 1);
     }
-
+[data-theme="dark"] {
+  --paper: #171a17;
+  --ink: #f0eee6;
+  --line: #3a4039;
+  --muted: #a5aaa1;
+}
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     html { scroll-behavior: smooth; }
@@ -831,6 +836,23 @@
   background: rgba(0,0,0,.85);
   padding: 12px;
   }
+    /* Theme toggle button */
+.theme-toggle {
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  width: 42px;
+  height: 42px;
+  cursor: pointer;
+  font-size: 18px;
+  display: grid;
+  place-items: center;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.theme-toggle:hover {
+  transform: rotate(15deg);
+}
     
   </style>
 </head>
@@ -846,6 +868,10 @@
      <li><a href="#projects">Projects</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
+    <button id="themeToggle" class="theme-toggle"
+        aria-label="Switch to dark mode">
+  🌙
+    </button>
   </nav>
   <main id="main">
     <!-- Hero -->
@@ -1487,6 +1513,33 @@ function closePresentation() {
       note.textContent = "Verify your email before sending your message.";
       form.elements.name.focus();
     });
+    // Dark and Light Mode
+const themeToggle = document.getElementById("themeToggle");
+
+function applyTheme(theme) {
+  document.documentElement.setAttribute("data-theme", theme);
+
+  themeToggle.textContent = theme === "dark" ? "☀️" : "🌙";
+
+  themeToggle.setAttribute(
+    "aria-label",
+    theme === "dark" ? "Switch to light mode" : "Switch to dark mode"
+  );
+
+  localStorage.setItem("portfolio-theme", theme);
+}
+
+// Load saved theme
+const savedTheme = localStorage.getItem("portfolio-theme") || "light";
+applyTheme(savedTheme);
+
+// Toggle theme
+themeToggle.addEventListener("click", () => {
+  const currentTheme =
+    document.documentElement.getAttribute("data-theme") || "light";
+
+  applyTheme(currentTheme === "light" ? "dark" : "light");
+});
   </script>
 </body>
 </html>
