@@ -838,4 +838,60 @@
   .projects-section {
     padding: 70px 6%;
 }
+        .pdf-modal {
+    padding: 5px;
+  }
+
+  .pdf-modal-content {
+    height: 95vh;
+  }
+}
+    
+.presentation-container {
+  width: min(1000px, 95vw);
+  height: min(650px, 85vh);
+  background: #fff;
+  padding: 12px;
+  border-radius: 16px;
+}
+
+.presentation-container iframe {
+  width: 100%;
+  height: calc(100% - 40px);
+  border: 0;
+  border-radius: 10px;
+}
+
+.project-modal.active {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.project-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(0,0,0,.85);
+  padding: 12px;
+  }
+    
+ .theme-toggle {
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  width: 42px;
+  height: 42px;
+  cursor: pointer;
+  font-size: 18px;
+  display: grid;
+  place-items: center;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.theme-toggle:hover {
+  transform: rotate(15deg);
+}
+    
   
