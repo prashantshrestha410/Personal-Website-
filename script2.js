@@ -403,6 +403,43 @@ if (backToTop) {
     });
   });
 }
+// PAGE ENTRANCE ANIMATION
+
+document.documentElement.classList.add("page-ready");
+
+window.addEventListener("load", () => {
+  document.body.classList.add("loaded");
+});
+// PRESENTATION MODAL OUTSIDE CLICK
+
+const presentationModal =
+  document.getElementById("presentationModal");
+
+if (presentationModal) {
+  presentationModal.addEventListener("click", function(event) {
+    if (event.target === this) {
+      closePresentation();
+    }
+  });
+}
+// CLOSE ALL MODALS WITH ESCAPE
+
+document.addEventListener("keydown", function(event) {
+  if (event.key === "Escape") {
+    if (presentationModal &&
+        presentationModal.classList.contains("active")) {
+      closePresentation();
+    }
+
+    const pdfModal = document.getElementById("pdfModal");
+
+    if (pdfModal &&
+        pdfModal.classList.contains("active")) {
+      closeProjectPDF();
+    }
+  }
+});
+
 
 
           
