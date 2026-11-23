@@ -33,7 +33,7 @@
       overflow-x: hidden;
     }
 
-    /* paper grain *
+    /* paper grain */
     body::after {
       content: "";
       position: fixed;
@@ -73,7 +73,7 @@
     }
     .skip:focus { left: 12px; }
 
-    /* ---------- Nav ---------- *
+    /* ---------- Nav ---------- */
     nav {
       position: sticky;
       top: 0;
@@ -143,7 +143,7 @@
     .nav-links a:hover { color: var(--ink); }
     .nav-links a:hover::after { transform: scaleX(1); transform-origin: left; }
 
-    /* ---------- Hero ---------- *
+    /* ---------- Hero ---------- */
     .hero {
       position: relative;
       min-height: calc(100vh - 71px);
@@ -251,7 +251,7 @@
     .btn svg { width: 14px; height: 14px; transition: transform 0.3s var(--ease); }
     .btn:hover svg { transform: translate(2px, -2px); }
 
-    /* rotating stamp *
+    /* rotating stamp */
     .stamp {
       position: absolute;
       right: var(--gutter);
@@ -271,7 +271,7 @@
     }
     @keyframes spin { to { transform: rotate(360deg); } }
 
-    /* ---------- Marquee ---------- *
+    /* ---------- Marquee ---------- */
     .marquee {
       border-top: 1px solid var(--ink);
       border-bottom: 1px solid var(--ink);
@@ -294,7 +294,7 @@
     .marquee-track span::after { content: "✦"; font-style: normal; font-size: 0.55em; color: var(--accent); }
     @keyframes slide { to { transform: translateX(-50%); } }
 
-    /* ---------- Sections ---------- *
+    /* ---------- Sections ---------- */
     section { padding: clamp(80px, 11vw, 150px) var(--gutter); }
 
     .sec-head {
@@ -318,7 +318,7 @@
     .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.9s var(--ease), transform 0.9s var(--ease); }
     .reveal.in { opacity: 1; transform: none; }
 
-    /* ---------- About ---------- *
+    /* ---------- About ---------- */
     .about-grid {
       display: grid;
       grid-template-columns: repeat(12, 1fr);
@@ -357,7 +357,7 @@
     .facts dd { text-align: right; font-weight: 500; }
     #clock { font-variant-numeric: tabular-nums; }
 
-    /* ---------- Work ---------- *
+    /* ---------- Work ---------- */
     #work { background: var(--paper-deep); }
 
     .work-list { list-style: none; border-top: 1px solid var(--ink); }
@@ -419,7 +419,7 @@
     .work-item:hover .work-arrow { background: var(--accent); border-color: var(--accent); }
     .work-item:hover .work-arrow svg { transform: rotate(45deg); }
 
-    /* ---------- Services ---------- *
+    /* ---------- Services ---------- */
     .services {
       display: grid;
       grid-template-columns: repeat(12, 1fr);
@@ -442,7 +442,7 @@
     }
     .service p { color: var(--ink-soft); max-width: 42ch; }
 
-    /* ---------- Contact ---------- *
+    /* ---------- Contact ---------- */
     #contact {
       background: var(--ink);
       color: var(--paper);
@@ -567,7 +567,8 @@
     .contact-grid.done form { display: none; }
     .contact-grid.done .sent { display: block; animation: fade 0.8s var(--ease); }
     
-/* Contact section - theme-safe colors *
+
+/* Contact section - theme-safe colors */
 
 #contact {
   background: #101827;
@@ -597,21 +598,6 @@
 }
 
 [data-theme="dark"] #contact .field input:focus,
-[data-theme="dark"] #contact 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 [data-theme="dark"] #contact .field textarea:focus,
 [data-theme="dark"] #contact .field select:focus {
   border-bottom-color: #5685FF;
@@ -622,10 +608,8 @@
   background: #245BFF;
   border-color: #245BFF;
   box-shadow: 0 0 20px rgba(36, 91, 255, 0.4);
-                }
-    
-
-    /* ---------- Footer ---------- *
+}
+ /* ---------- Footer ---------- */
     footer {
       background: var(--ink);
       color: rgba(243, 237, 226, 0.45);
@@ -654,7 +638,7 @@
     .foot-row a { text-decoration: none; transition: color 0.2s; }
     .foot-row a:hover { color: var(--paper); }
 
-    /* ---------- Responsive ---------- *
+    /* ---------- Responsive ---------- */
     @media (max-width: 900px) {
       .hero-intro { grid-column: 1 / -1; margin-bottom: 28px; }
       .hero-cta { grid-column: 1 / -1; justify-self: start; }
@@ -683,7 +667,7 @@
       html { scroll-behavior: auto; }
     }
     
-/* PROJECTS SECTION *
+/* PROJECTS SECTION */
 
 .projects-section {
   padding: 100px 8%;
@@ -779,7 +763,7 @@
   border-color: #a65d43;
 }
 
-/* PDF MODAL *
+/* PDF MODAL */
 
 .pdf-modal {
   display: none;
