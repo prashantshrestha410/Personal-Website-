@@ -30,12 +30,7 @@ document.getElementById("pdfModal").addEventListener(
   }
 );
 
-// Close using Escape key
-document.addEventListener("keydown", function(event) {
-  if (event.key === "Escape") {
-    closeProjectPDF();
-  }
-});
+
     // Presentation viewer
 const presentationEmbedURL = "PASTE_YOUR_GOOGLE_SLIDES_EMBED_URL";
 
