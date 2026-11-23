@@ -291,6 +291,100 @@ themeToggle.addEventListener("click", () => {
 
   applyTheme(currentTheme === "light" ? "dark" : "light");
 });
+// MODERN NAVIGATION AND SCROLL EFFECTS
+
+const nav = document.getElementById("nav");
+
+if (nav) {
+  const updateNav = () => {
+    nav.classList.toggle("scrolled", window.scrollY > 8);
+  };
+
+  updateNav();
+
+  window.addEventListener("scroll", updateNav, {
+    passive: true
+  });
+}
+// ACTIVE NAVIGATION HIGHLIGHT
+
+const navLinks = document.querySelectorAll(
+  "#nav a[href^='#']"
+);
+
+const pageSections = document.querySelectorAll(
+  "main section[id], section[id]"
+);
+
+if ("IntersectionObserver" in window) {
+  const sectionObserver = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navLinks.forEach(link => {
+            link.classList.toggle(
+              "active",
+              link.getAttribute("href") ===
+              "#" + entry.target.id
+            );
+          });
+        }
+      });
+    },
+    { rootMargin: "-35% 0px -55% 0px" }
+  );
+
+  pageSections.forEach(section => {
+    sectionObserver.observe(section);
+  });
+}
+// SCROLL REVEAL ANIMATIONS
+
+const revealItems = document.querySelectorAll(".reveal");
+
+if ("IntersectionObserver" in window) {
+  const revealObserver = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("in");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.12 }
+  );
+
+  revealItems.forEach(item => {
+    revealObserver.observe(item);
+  });
+
+} else {
+  revealItems.forEach(item => {
+    item.classList.add("in");
+  });
+    }
+// SMOOTH SCROLLING
+
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+  link.addEventListener("click", function(event) {
+    const targetId = this.getAttribute("href");
+
+    if (!targetId || targetId === "#") return;
+
+    const target = document.querySelector(targetId);
+
+    if (target) {
+      event.preventDefault();
+
+      target.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+    }
+  });
+});
+
 
           
     
