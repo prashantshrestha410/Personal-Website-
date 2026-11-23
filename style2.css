@@ -1,6 +1,4 @@
-
-  
-    :root {
+:root {
       --paper: #f3ede2;
       --paper-deep: #e9e1d2;
       --ink: #1c1a17;
@@ -754,3 +752,90 @@
   font-size: 14px;
   line-height: 1.7;
         }
+.project-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 25px;
+}
+
+.project-actions a,
+.project-actions button {
+  display: inline-block;
+  padding: 10px 14px;
+  border: 1px solid #344b3c;
+  border-radius: 5px;
+  background: #344b3c;
+  color: #fffefa;
+  text-decoration: none;
+  font-size: 12px;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.project-actions a:hover,
+.project-actions button:hover {
+  background: #a65d43;
+  border-color: #a65d43;
+}
+
+/* PDF MODAL *
+
+.pdf-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(0,0,0,0.85);
+  padding: 20px;
+}
+
+.pdf-modal.active {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pdf-modal-content {
+  width: 100%;
+  max-width: 1000px;
+  height: 90vh;
+  background: #fffefa;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.pdf-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  background: #344b3c;
+  color: white;
+}
+
+.pdf-modal-header h3 {
+  font-size: 16px;
+}
+
+.pdf-modal-header button {
+  border: 0;
+  background: transparent;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.pdf-modal iframe {
+  width: 100%;
+  flex: 1;
+  border: none;
+}
+
+@media (max-width: 600px) {
+  .projects-section {
+    padding: 70px 6%;
+}
+  
