@@ -118,6 +118,139 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
       target.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   });
+  
+// ========================================
+// PDF PROJECT VIEWER
+// ========================================
+
+function openProjectPDF(file) {
+  const modal = document.getElementById("pdfModal");
+  const frame = document.getElementById("projectPDFFrame");
+
+  if (!modal || !frame) return;
+
+  frame.src = file;
+  modal.classList.add("active");
+  document.body.style.overflow = "hidden";
+}
+
+function closeProjectPDF() {
+  const modal = document.getElementById("pdfModal");
+  const frame = document.getElementById("projectPDFFrame");
+
+  modal?.classList.remove("active");
+
+  if (frame) frame.src = "";
+
+  document.body.style.overflow = "";
+}
+
+
+// Close PDF when clicking outside the viewer
+document.getElementById("pdfModal")?.addEventListener("click", event => {
+  if (event.target.id === "pdfModal") {
+    closeProjectPDF();
+  }
+});
+  
+// ========================================
+// PRESENTATION VIEWER
+// ========================================
+
+const presentationEmbedURL =
+  "https://docs.google.com/presentation/d/1VsVQKVoqxlXggIb3kCIptmdnB9mfKMZ/embed";
+
+function openPresentation() {
+  const modal = document.getElementById("presentationModal");
+  const frame = document.getElementById("presentationFrame");
+
+  if (!modal || !frame) return;
+
+  frame.src = presentationEmbedURL;
+  modal.classList.add("active");
+  document.body.style.overflow = "hidden";
+}
+
+function closePresentation() {
+  const modal = document.getElementById("presentationModal");
+  const frame = document.getElementById("presentationFrame");
+
+  modal?.classList.remove("active");
+
+  if (frame) frame.src = "";
+
+  document.body.style.overflow = "";
+}
+
+
+// Close presentation when clicking outside
+document.getElementById("presentationModal")?.addEventListener(
+  "click",
+  event => {
+    if (event.target.id === "presentationModal") {
+      closePresentation();
+    }
+  }
+);
+  
+// ========================================
+// MODAL & KEYBOARD CONTROLS
+// ========================================
+
+document.addEventListener("keydown", event => {
+  if (event.key === "Escape") {
+    closeProjectPDF();
+    closePresentation();
+
+    navLinks?.classList.remove("open");
+    menuToggle?.setAttribute("aria-expanded", "false");
+  }
+});
+
+
+// ========================================
+// CLOSE BUTTONS
+// ========================================
+
+document.querySelectorAll("[data-close-pdf]").forEach(button => {
+  button.addEventListener("click", closeProjectPDF);
+});
+
+document.querySelectorAll("[data-close-presentation]").forEach(button => {
+  button.addEventListener("click", closePresentation);
+});
+  
+// ========================================
+// TOUCH MICRO-INTERACTIONS
+// ========================================
+
+document.querySelectorAll(
+  ".project-card, .service-card, .stat-card"
+).forEach(card => {
+  card.addEventListener("touchstart", () => {
+    card.classList.add("touch-active");
+  }, { passive: true });
+
+  card.addEventListener("touchend", () => {
+    card.classList.remove("touch-active");
+  }, { passive: true });
+
+  card.addEventListener("touchcancel", () => {
+    card.classList.remove("touch-active");
+  }, { passive: true });
+});
+  
+// ========================================
+// ACCESSIBILITY: REDUCED MOTION
+// ========================================
+
+const reducedMotion = window.matchMedia(
+  "(prefers-reduced-motion: reduce)"
+);
+
+if (reducedMotion.matches) {
+  document.documentElement.classList.add("reduce-motion");
+}
 });
 
 
