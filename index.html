@@ -1,394 +1,201 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Prashant Shrestha — Designer &amp; Developer, Kathmandu</title>
-  <!-- 1. Facebook / LinkedIn / WhatsApp / Discord (Open Graph Protocol) -->
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://prashantshrestha410.com.np" />
-<meta property="og:title" content="Prashant Shrestha — Designer & Developer" />
-<meta property="og:description" content="Websites, interfaces, and small digital products, made in Kathmandu." />
-<meta property="og:image" content="https://prashantshrestha410.com.np/images/image_3e35ee07.jpg" />
-
-<!-- 2. X / Twitter Specific Cards -->
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:url" content="https://prashantshrestha410.com.np" />
-<meta name="twitter:title" content="Prashant Shrestha — Designer & Developer" />
-<meta name="twitter:description" content="Websites, interfaces, and small digital products, made in Kathmandu." />
-<meta name="twitter:image" content="https://prashantshrestha410.com.np/images/image_3e35ee07.jpg"/>
-
-  <meta name="theme-color" content="#f3ede2" />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231c1a17'/%3E%3Ctext x='50%25' y='56%25' text-anchor='middle' dominant-baseline='middle' font-family='Georgia,serif' font-style='italic' font-size='38' fill='%23f3ede2'%3Ep%3C/text%3E%3C/svg%3E" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..800;1,9..144,300..800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css">
- </head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Prashant Shrestha — Computer Engineer · Tech Enthusiast</title>
+<meta name="description" content="Prashant Shrestha is a computer engineer and lifelong learner from Kathmandu, building innovative solutions and exploring technology.">
+<meta name="author" content="Prashant Shrestha">
+<meta name="color-scheme" content="dark light">
+<meta name="theme-color" content="#061812" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#F5FBF7" media="(prefers-color-scheme: light)">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://arvaqzwhxrpzcwzfplnw.supabase.co; frame-src 'self' https://docs.google.com; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://prashantshrestha410.com.np">
+<meta property="og:title" content="Prashant Shrestha — Computer Engineer">
+<meta property="og:description" content="Computer Engineer | Tech Enthusiast | Lifelong Learner — Kathmandu, Nepal.">
+<meta property="og:image" content="https://prashantshrestha410.com.np/images/image_3e35ee07.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23061812'/%3E%3Cg fill='none' stroke='%236EE7B7' stroke-width='5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M14 52V12h14c9 0 9 20 0 20H14'/%3E%3Cpath d='M54 20c-2-6-10-8-14-5-6 4-4 12 4 16 8 4 10 9 6 15-4 6-14 6-18 0'/%3E%3C/g%3E%3C/svg%3E">
+<script src="js/main.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@500;600;700&display=swap">
+<link rel="stylesheet" href="css/styles.css">
+<noscript><style>.loader{display:none!important}.reveal{opacity:1!important;transform:none!important}</style></noscript>
+</head>
 <body>
-  <a class="skip" href="#main">Skip to content</a>
 
-  <nav id="nav" aria-label="Primary">
-    <a href="#top" class="mark" aria-label="Prashant Shrestha, home"><i>p</i>Prashant</a>
-    <ul class="nav-links mono">
-      <li><a href="#about">About</a></li>
-      <li><a href="#work">Work</a></li>
-      <li><a href="#services">Services</a></li>
-     <li><a href="#projects">Projects</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-    <button id="themeToggle" class="theme-toggle"
-        aria-label="Switch to dark mode">
-  🌙
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- SVG sprite: icons, logo and gradients -->
+<svg class="sprite" aria-hidden="true" focusable="false">
+  <defs>
+    <linearGradient id="gLogo" x1="0" y1="0" x2="1" y2="1"><stop offset="0" class="gs-a"/><stop offset="1" class="gs-b"/></linearGradient>
+    <linearGradient id="gRing" x1="0" y1="0" x2="1" y2="1"><stop offset="0" class="gs-b"/><stop offset="1" class="gs-a"/></linearGradient>
+    <symbol id="i-logo" viewBox="0 0 64 64"><path d="M14 52V12h14c9 0 9 20 0 20H14"/><path d="M54 20c-2-6-10-8-14-5-6 4-4 12 4 16 8 4 10 9 6 15-4 6-14 6-18 0"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></symbol>
+    <symbol id="i-chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
+    <symbol id="i-fold" viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M7 17L17 7M8 7h9v9"/></symbol>
+    <symbol id="i-up" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 21h16"/></symbol>
+    <symbol id="i-github" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></symbol>
+    <symbol id="i-linkedin" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2zM4 6a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 7L2 7"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></symbol>
+    <symbol id="i-cap" viewBox="0 0 24 24"><path d="M22 10L12 5 2 10l10 5 10-5zM6 12v5c3 3 9 3 12 0v-5"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></symbol>
+    <symbol id="i-code" viewBox="0 0 24 24"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></symbol>
+    <symbol id="i-spark" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9z"/></symbol>
+    <symbol id="i-doc" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8zM14 2v6h6M16 13H8M16 17H8"/></symbol>
+    <symbol id="i-slides" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M12 16v4M8 20h8"/></symbol>
+  </defs>
+</svg>
+
+<!-- Loading screen -->
+<div class="loader" id="loader" role="status" aria-live="polite" aria-label="Loading portfolio">
+  <div class="loader-core">
+    <div class="loader-ring">
+      <svg viewBox="0 0 150 150" aria-hidden="true"><circle class="ring-track" cx="75" cy="75" r="70"/><circle class="ring-fill" id="ringFill" cx="75" cy="75" r="70"/></svg>
+      <svg class="loader-logo" viewBox="0 0 64 64" aria-hidden="true"><path pathLength="1" d="M14 52V12h14c9 0 9 20 0 20H14"/><path pathLength="1" d="M54 20c-2-6-10-8-14-5-6 4-4 12 4 16 8 4 10 9 6 15-4 6-14 6-18 0"/></svg>
+    </div>
+    <div class="loader-meta"><span class="loader-name">Prashant Shrestha</span><span class="loader-count" id="loaderCount">0%</span></div>
+  </div>
+</div>
+
+<div class="progress" id="progress" aria-hidden="true"></div>
+<div class="bg" aria-hidden="true"><span class="blob b1"></span><span class="blob b2"></span><span class="blob b3"></span></div>
+<canvas id="particles" aria-hidden="true"></canvas>
+<div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+
+<!-- Foldable glass navigation -->
+<header class="nav-wrap">
+  <nav class="nav" id="nav" aria-label="Primary">
+    <a class="brand" href="#home" aria-label="Prashant Shrestha — home">
+      <svg class="logo" viewBox="0 0 64 64" aria-hidden="true"><use class="logo-use" href="#i-logo"/></svg>
+      <span class="brand-name">Prashant Shrestha</span>
+    </a>
+
+    <div class="nav-fold" id="navFold">
+      <div class="nav-fold-inner" id="navInner">
+        <span class="nav-ind" id="navInd" aria-hidden="true"></span>
+        <ul class="nav-links" id="navLinks">
+          <li><a class="nav-link" href="#home">Home</a></li>
+          <li><a class="nav-link" href="#about">About</a></li>
+          <li><a class="nav-link" href="#projects">Projects</a></li>
+          <li><a class="nav-link" href="#presentations">Presentations</a></li>
+          <li class="dd" id="resDd">
+            <button class="nav-link dd-btn" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="resMenu">Resources <svg class="ic chev" aria-hidden="true"><use href="#i-chev"/></svg></button>
+            <div class="dd-menu" id="resMenu">
+              <a class="dd-item" href="#projects"><svg class="ic" aria-hidden="true"><use href="#i-doc"/></svg><span><strong>Project reports</strong><small>Read PDFs online</small></span></a>
+              <a class="dd-item" href="#presentations"><svg class="ic" aria-hidden="true"><use href="#i-slides"/></svg><span><strong>Slides and decks</strong><small>Preview or download</small></span></a>
+              <a class="dd-item" href="../cv/Prashant-Shrestha-CV.pdf" download><svg class="ic" aria-hidden="true"><use href="#i-download"/></svg><span><strong>Download CV</strong><small>PDF resume</small></span></a>
+              <a class="dd-item" href="https://github.com/prashantshrestha410" target="_blank" rel="noopener noreferrer"><svg class="ic" aria-hidden="true"><use href="#i-github"/></svg><span><strong>GitHub</strong><small>Source and experiments</small></span></a>
+            </div>
+          </li>
+          <li><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <button class="icon-btn" id="themeToggle" type="button" aria-label="Switch to light mode">
+      <svg class="ic ic-sun" aria-hidden="true"><use href="#i-sun"/></svg>
+      <svg class="ic ic-moon" aria-hidden="true"><use href="#i-moon"/></svg>
+    </button>
+    <button class="icon-btn" id="foldBtn" type="button" aria-label="Fold navigation" aria-expanded="true" aria-controls="navFold">
+      <svg class="ic ic-fold" aria-hidden="true"><use href="#i-fold"/></svg>
+      <svg class="ic ic-menu" aria-hidden="true"><use href="#i-menu"/></svg>
+      <svg class="ic ic-x" aria-hidden="true"><use href="#i-x"/></svg>
     </button>
   </nav>
-  <main id="main">
-    <!-- Hero -->
-    <header class="hero" id="top">
-      <div class="hero-meta mono">
-        <span class="status">Open to new projects &mdash; 2027</span>
-        <span>27.7172&deg; N, 85.3240&deg; E &middot; Kathmandu, Nepal</span>
-      </div>
+</header>
 
-      <h1 aria-label="Prashant Shrestha">
-        <span class="line"><span>Prashant</span></span>
-        <span class="line"><span><em>Shrestha</em></span></span>
-      </h1>
+<main id="main">
 
-      <div class="stamp" aria-hidden="true">
-        <svg viewBox="0 0 200 200">
-          <defs><path id="circle" d="M100,100 m-80,0 a80,80 0 1,1 160,0 a80,80 0 1,1 -160,0" /></defs>
-          <text font-family="JetBrains Mono, monospace" font-size="15.5" letter-spacing="4.2" fill="#1c1a17">
-            <textPath href="#circle">DESIGN &#183; CODE &#183; KATHMANDU &#183; SINCE 2019 &#183;</textPath>
-          </text>
-        </svg>
-      </div>
-
-      <div class="hero-foot">
-        <p class="hero-intro">
-          I'm a <strong>designer and developer</strong> who builds websites, interfaces and small digital products. Clear typography, fast pages, and code that someone else can maintain later.
-        </p>
+  <!-- Hero -->
+  <section class="hero" id="home" aria-labelledby="heroTitle">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <span class="badge"><i class="pulse-dot" aria-hidden="true"></i>Hello, I'm</span>
+        <h1 class="hero-title" id="heroTitle"><span class="line"><span>Prashant</span></span><span class="line"><span class="grad">Shrestha</span></span></h1>
+        <p class="hero-sub"><span>Computer Engineer</span><i aria-hidden="true"></i><span>Tech Enthusiast</span><i aria-hidden="true"></i><span>Lifelong Learner</span></p>
+        <p class="hero-intro">I build innovative solutions and explore technology, from clean, fast websites to the ideas and hardware behind them. Always learning, always shipping.</p>
         <div class="hero-cta">
-          <a href="#work" class="btn btn-ghost">See selected work</a>
-          <a href="#contact" class="btn btn-solid">Start a project
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9" /></svg>
-          </a>
+          <a class="btn btn-primary magnetic" href="#projects">Explore My Work <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <a class="btn btn-glass dl magnetic" href="../cv/Prashant-Shrestha-CV.pdf" download>Download CV <svg class="ic" aria-hidden="true"><use href="#i-download"/></svg></a>
         </div>
       </div>
-    </header>
 
-    <div class="marquee" aria-hidden="true">
-      <div class="marquee-track">
-        <span>Web design</span><span>Front-end development</span><span>Brand identity</span><span>Landing pages</span><span>UI systems</span><span>Prototyping</span>
-        <span>Web design</span><span>Front-end development</span><span>Brand identity</span><span>Landing pages</span><span>UI systems</span><span>Prototyping</span>
-      </div>
-    </div>
-
-    <!-- About -->
-    <section id="about">
-      <div class="sec-head reveal">
-        <span class="sec-num mono">(01) &mdash; About</span>
-        <h2>Small team energy, <em>one person</em> deep.</h2>
-      </div>
-
-      <div class="about-grid">
-        <p class="about-lede reveal">
-          I work at the overlap of design and engineering &mdash; sketching the idea, shaping the interface, and shipping it to a real URL. <em>No handoff gaps.</em>
-        </p>
-
-        <dl class="facts reveal">
-          <div><dt class="mono">Based in</dt><dd>Kathmandu, NP</dd></div>
-          <div><dt class="mono">Local time</dt><dd id="clock">--:--</dd></div>
-          <div><dt class="mono">Focus</dt><dd>Web &amp; interface</dd></div>
-          <div><dt class="mono">Tools</dt><dd>Figma, HTML/CSS, JS</dd></div>
-          <div><dt class="mono">Languages</dt><dd>Nepali, English</dd></div>
-        </dl>
-
-        <div class="about-body reveal">
-          <p>Most of my projects start with a conversation about what a page actually needs to do &mdash; sell a product, collect sign-ups, explain something complicated &mdash; and work backwards from there to type, layout and code.</p>
-          <p>I like working with early-stage founders, local businesses and creative people who want a site that feels considered, loads quickly, and is easy to update once I've handed it over.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Work -->
-    <section id="work">
-      <div class="sec-head reveal">
-        <span class="sec-num mono">(02) &mdash; Selected work</span>
-        <h2>Recent things <em>I've made.</em></h2>
-      </div>
-
-      <ul class="work-list">
-        <li class="work-item reveal">
-          <span class="work-year mono">2026</span>
-          <h3 class="work-title">Aetheris<small>Launch page with live countdown and waitlist</small></h3>
-          <span class="work-tags mono">Design &middot; Front-end</span>
-          <span class="work-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M8 7h9v9" /></svg></span>
-        </li>
-        <li class="work-item reveal">
-          <span class="work-year mono">2026</span>
-          <h3 class="work-title">Himal Tea House<small>Menu, story and booking site for a café in Thamel</small></h3>
-          <span class="work-tags mono">Web design &middot; Brand</span>
-          <span class="work-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M8 7h9v9" /></svg></span>
-        </li>
-        <li class="work-item reveal">
-          <span class="work-year mono">2025</span>
-          <h3 class="work-title">Ledger Lite<small>Dashboard UI for a small-shop bookkeeping tool</small></h3>
-          <span class="work-tags mono">UI system &middot; Prototype</span>
-          <span class="work-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M8 7h9v9" /></svg></span>
-        </li>
-        <li class="work-item reveal">
-          <span class="work-year mono">2025</span>
-          <h3 class="work-title">Trailnotes<small>Field-guide style blog for Himalayan trekking routes</small></h3>
-          <span class="work-tags mono">Editorial &middot; Front-end</span>
-          <span class="work-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M8 7h9v9" /></svg></span>
-        </li>
-      </ul>
-    </section>
-
-    <!-- Services -->
-    <section id="services">
-      <div class="sec-head reveal">
-        <span class="sec-num mono">(03) &mdash; Services</span>
-        <h2>What I can <em>help with.</em></h2>
-      </div>
-
-      <div class="services">
-        <article class="service reveal">
-          <span class="mono">i.</span>
-          <h3>Websites &amp; landing pages</h3>
-          <p>Marketing sites, launch pages and portfolios &mdash; designed and built end-to-end, responsive and quick to load.</p>
-        </article>
-        <article class="service reveal">
-          <span class="mono">ii.</span>
-          <h3>Interface design</h3>
-          <p>Screens, flows and component libraries for apps and dashboards, prototyped in Figma before a line of code is written.</p>
-        </article>
-        <article class="service reveal">
-          <span class="mono">iii.</span>
-          <h3>Front-end development</h3>
-          <p>Accessible, well-structured HTML, CSS and JavaScript that turns a design file into a working product.</p>
-        </article>
-        <article class="service reveal">
-          <span class="mono">iv.</span>
-          <h3>Visual identity</h3>
-          <p>Wordmarks, colour and type systems that give a small brand a consistent look across web and print.</p>
-        </article>
-      </div>
-    </section>
-    
-<!-- PROJECTS & PUBLICATIONS -->
-<section id="projects" class="projects-section">
-  <div class="section-heading">
-    <span class="section-label">MY WORK & DOCUMENTATION</span>
-    <h2>Projects & Publications</h2>
-    <p>
-      Explore my academic projects, reports, research
-      and presentations.
-    </p>
-  </div>
-
-  <div class="projects-grid">
-
-    <!-- PROJECT 1: PDF -->
-    <article class="project-card">
-      <div class="project-icon">📄</div>
-
-      <span class="project-category">PROJECT REPORT</span>
-
-      <h3>Pharping Hydropower Visit</h3>
-
-      <p>
-        A detailed report documenting the industrial
-        visit, observations and learning experiences.
-      </p>
-
-      <div class="project-actions">
-        <button onclick="openProjectPDF(
-          'projects/Physics project 12.pdf'
-        )">
-          Read Online
-        </button>
-
-        <a href="projects/Physics%20project%2012.pdf"
-   target="_blank"
-   rel="noopener noreferrer"
-   class="project-btn">
-   Open PDF
-        </a>
-
-        <a
-          href="projects/Physics%20project%2012.pdf"
-          download>
-          Download
-        </a>
-      </div>
-    </article>
-    <!-- PROJECT 2: PRESENTATION -->
-<div class="project-card">
-  <div class="project-info">
-    <span class="project-type">PRESENTATION</span>
-    <h3>Mobile Computing</h3>
-    <p>
-      An introduction to mobile computing,
-      its applications, benefits and challenges.
-    </p>
-
-    <div class="project-actions">
-      <button onclick="openPresentation()">
-        Preview Slides
-      </button>
-
-      <a
-        href="projects/MOBILE%20COMPUTING.pptx"
-        download
-        class="project-btn">
-        Download PPTX
-      </a>
-    </div>
-  </div>
-</div>
-
-<div id="presentationModal" class="project-modal">
-  <div class="presentation-container">
-    <button onclick="closePresentation()">
-      Close ✕
-    </button>
-    <iframe
-  id="presentationFrame"
-  src=""
-  title="Mobile Computing presentation preview"
-  loading="lazy"
-  allowfullscreen>
-    </iframe>
-  </div>
-</div>
-    
-
-
-<div id="pdfModal" class="pdf-modal">
-  <div class="pdf-modal-content">
-
-    <div class="pdf-modal-header">
-      <h3>Project Document</h3>
-
-      <button
-        type="button"
-        onclick="closeProjectPDF()"
-        aria-label="Close PDF viewer">
-        ✕
-      </button>
-    </div>
-
-    <iframe
-      id="projectPDFFrame"
-      title="Project PDF preview">
-    </iframe>
-
-  </div>
-</div>
-  
-</section>
-  
-    
-
-    <!-- Contact -->
-    <section id="contact">
-      <div class="sec-head reveal">
-        <span class="sec-num mono">(04) &mdash; Contact</span>
-        <h2>Have something in mind? <em>Let's talk.</em></h2>
-      </div>
-
-      <div class="contact-grid" id="contactGrid">
-        <div class="contact-side reveal">
-          <p>Tell me a little about your project and I'll reply within two working days.</p>
-          <div>
-            <span class="mono">Instagram</span>
-            <a href="https://www.instagram.com/pxshantt" target="_blank" rel="noopener">@pxshantt</a>
-          </div>
-          <div>
-            <span class="mono">Website</span>
-            <a href="https://prashantshrestha410.com.np">prashantshrestha410.com.np</a>
+      <div class="hero-visual" id="heroVisual">
+        <span class="aura" aria-hidden="true"></span>
+        <span class="orbit o3" aria-hidden="true"></span>
+        <span class="orbit o2" aria-hidden="true"></span>
+        <span class="orbit o1" aria-hidden="true"></span>
+        <div class="avatar">
+          <div class="avatar-in">
+            <svg class="fallback" viewBox="0 0 64 64" aria-hidden="true"><use class="logo-use" href="#i-logo"/></svg>
+            <img id="avatarImg" src="../images/image_3e35ee07.jpg" alt="Portrait of Prashant Shrestha" width="400" height="400" fetchpriority="high" decoding="async">
           </div>
         </div>
-
-        <form name="contact" id="contactForm" class="reveal" novalidate>
-          <p class="hp"><label>Leave this empty: <input name="website" tabindex="-1" autocomplete="off" /></label></p>
-
-          <div class="field">
-            <label class="mono" for="name">Your name</label>
-            <input id="name" name="name" type="text" autocomplete="name" placeholder="Anjali Gurung" required />
-            <span class="err" aria-live="polite"></span>
-          </div>
-          <div class="field">
-            <label class="mono" for="email">Email</label>
-            <input id="email" name="email" type="email" autocomplete="email" placeholder="you@studio.com" required />
-            <span class="err" aria-live="polite"></span>
-          </div>
-          <div class="field full">
-            <div class="verify-row">
-              <button type="button" class="btn btn-ghost" id="sendCodeBtn" style="color: var(--paper); border-color: rgba(243,237,226,.4)">Send verification code</button>
-              <span class="verify-status" id="verifyStatus" aria-live="polite">Verify your email before sending a message.</span>
-            </div>
-          </div>
-          <div class="field full otp-field" id="otpField">
-            <label class="mono" for="otp">6-digit email verification code</label>
-            <input id="otp" name="otp" type="text" inputmode="numeric" autocomplete="one-time-code" maxlength="6" pattern="[0-9]{6}" placeholder="Enter the code from your email" />
-            <div class="verify-row">
-              <button type="button" class="btn btn-ghost" id="verifyCodeBtn" style="color: var(--paper); border-color: rgba(243,237,226,.4)">Verify email</button>
-            </div>
-          </div>
-          <div class="field full">
-            <label class="mono" for="type">Project type</label>
-            <select id="type" name="project-type">
-              <option>Website or landing page</option>
-              <option>Interface design</option>
-              <option>Front-end development</option>
-              <option>Visual identity</option>
-              <option>Something else</option>
-            </select>
-          </div>
-          <div class="field full">
-            <label class="mono" for="message">About the project</label>
-            <textarea id="message" name="message" placeholder="What are you building, and when do you need it?" required></textarea>
-            <span class="err" aria-live="polite"></span>
-          </div>
-
-          <div class="form-foot">
-            <p class="form-note" id="formNote" aria-live="polite">Verify your email before sending your message.</p>
-            <button type="submit" class="btn btn-solid" id="sendBtn" disabled>Send message
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9" /></svg>
-            </button>
-          </div>
-        </form>
-
-        <div class="sent" role="status">
-          <h3>Thank you &mdash; <em>message received.</em></h3>
-          <p>I'll read it properly and get back to you within two working days.</p>
-          <button type="button" class="btn btn-ghost" id="againBtn" style="color: var(--paper); border-color: rgba(243,237,226,.4)">Send another</button>
-        </div>
+        <span class="chip c1"><span><svg class="ic" aria-hidden="true"><use href="#i-code"/></svg>Code</span></span>
+        <span class="chip c2"><span><svg class="ic" aria-hidden="true"><use href="#i-spark"/></svg>Ideas</span></span>
+        <span class="chip c3"><span><svg class="ic" aria-hidden="true"><use href="#i-cap"/></svg>Learning</span></span>
       </div>
-    </section>
-  </main>
 
-  <footer>
-    <div class="big-name" aria-hidden="true">Prashant Shrestha</div>
-    <div class="policy-links">
-  <a href="terms.html">Terms & Conditions</a>
-  <a href="privacy.html">Privacy Policy</a>
+      <div class="hero-cards">
+        <article class="glass card spot">
+          <div class="card-head"><h2><svg class="ic" aria-hidden="true"><use href="#i-code"/></svg>My Skills</h2><span class="card-tag">Toolkit</span></div>
+          <ul class="skills">
+            <li class="skill">HTML &amp; CSS</li>
+            <li class="skill">JavaScript</li>
+            <li class="skill">Python</li>
+            <li class="skill">C / C++</li>
+            <li class="skill">Figma</li>
+            <li class="skill">Git &amp; GitHub</li>
+          </ul>
+        </article>
+        <article class="glass card spot">
+          <div class="card-head"><h2><svg class="ic" aria-hidden="true"><use href="#i-globe"/></svg>Quick Links</h2><span class="card-tag">Find me</span></div>
+          <div class="links">
+            <a class="qlink" href="https://github.com/prashantshrestha410" target="_blank" rel="noopener noreferrer"><svg class="ic" aria-hidden="true"><use href="#i-github"/></svg><span>GitHub<small>@prashantshrestha410</small></span></a>
+            <a class="qlink" href="https://www.linkedin.com/in/YOUR-LINKEDIN-USERNAME" target="_blank" rel="noopener noreferrer"><svg class="ic" aria-hidden="true"><use href="#i-linkedin"/></svg><span>LinkedIn<small>Let's connect</small></span></a>
+            <a class="qlink" href="#contact"><svg class="ic" aria-hidden="true"><use href="#i-mail"/></svg><span>Email<small>Verified contact form</small></span></a>
+            <a class="qlink" href="https://prashantshrestha410.com.np" target="_blank" rel="noopener noreferrer"><svg class="ic" aria-hidden="true"><use href="#i-globe"/></svg><span>Portfolio<small>prashantshrestha410.com.np</small></span></a>
+          </div>
+        </article>
+      </div>
     </div>
-    <div class="foot-row mono">
-      <span>&copy; <span id="year">2026</span> Prashant Shrestha</span>
-      <span>Made in Kathmandu</span>
-    
+  </section>
+
+  <!-- Statistics -->
+  <section class="stats" id="stats" aria-label="Highlights">
+    <div class="wrap">
+      <div class="glass stats-bar reveal">
+        <div class="stat"><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><div><div class="stat-val"><span data-count="4.0" data-decimals="1">4.0</span></div><div class="stat-lbl">GPA</div></div></div>
+        <div class="stat"><svg class="ic" aria-hidden="true"><use href="#i-cap"/></svg><div><div class="stat-val">+<span data-count="2" data-decimals="0">2</span></div><div class="stat-lbl">Graduate, Xavier Academy</div></div></div>
+        <div class="stat"><svg class="ic" aria-hidden="true"><use href="#i-code"/></svg><div><div class="stat-val"><span data-count="10" data-decimals="0">10</span>+</div><div class="stat-lbl">Projects</div></div></div>
+        <div class="stat"><svg class="ic" aria-hidden="true"><use href="#i-spark"/></svg><div><div class="stat-val sm">Passionate</div><div class="stat-lbl">About Innovation</div></div></div>
+      </div>
     </div>
+  </section>
 
-  </footer>
+  <!-- Placeholders for the next milestones (nav scroll-spy works on these) -->
+  <section class="stub" id="about"><div class="wrap"><div class="glass stub-card reveal"><h2>About</h2><p>Next milestone: introduction, education, interests, skills and goals.</p></div></div></section>
+  <section class="stub" id="projects"><div class="wrap"><div class="glass stub-card reveal"><h2>Projects</h2><p>Next milestone: Bento project grid and PDF viewer.</p></div></div></section>
+  <section class="stub" id="presentations"><div class="wrap"><div class="glass stub-card reveal"><h2>Presentations</h2><p>Next milestone: slide viewer with preview and download.</p></div></div></section>
+  <section class="stub" id="contact"><div class="wrap"><div class="glass stub-card reveal"><h2>Contact</h2><p>Next milestone: your OTP-verified contact form, restyled. Backend untouched.</p></div></div></section>
+</main>
 
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script src="script.js" defer></script>
-  <button id="backToTop" aria-label="Back to top">
-  ↑
-  </button>
+<footer class="foot"><div class="wrap">&copy; <span id="year">2026</span> Prashant Shrestha &middot; Made in Kathmandu &middot; <span id="clock" aria-label="Kathmandu local time">--:--</span> NPT</div></footer>
+
+<button class="to-top" id="backToTop" type="button" aria-label="Back to top"><svg class="ic" aria-hidden="true"><use href="#i-up"/></svg></button>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </body>
 </html>
